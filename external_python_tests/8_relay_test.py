@@ -5,7 +5,7 @@ from std_msgs.msg import Int16MultiArray
 
 
 def main():
-    pub = rospy.Publisher('eight_relay', Int16MultiArray, queue_size = 10)
+    pub = rospy.Publisher('relay_1_sub', Int16MultiArray, queue_size = 10)
     rospy.init_node('relay_mover')
     r = rospy.Rate(1)
     data_to_send = Int16MultiArray()

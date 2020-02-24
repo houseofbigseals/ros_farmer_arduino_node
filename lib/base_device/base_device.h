@@ -35,8 +35,8 @@ class BasePubDevice
 class BaseSubDevice
 {
     public:
-    virtual void init() = 0;
-    virtual void callback() = 0;
+    //virtual void init() = 0;
+    virtual void messageCb() = 0;
 };
 
 #endif
