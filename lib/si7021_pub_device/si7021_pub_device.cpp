@@ -2,7 +2,8 @@
 #include <si7021_pub_device.h>
 
 SI7021PubDevice::SI7021PubDevice(
-    ros::NodeHandle* nh_,
+    //ros::NodeHandle* nh_,
+    ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 1024>* nh_,
     char* temp_pub_name_,
     char* hum_pub_name_,
     unsigned long publish_interval_
