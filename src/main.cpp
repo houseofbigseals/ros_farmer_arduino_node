@@ -12,7 +12,7 @@
 
 // global node definition
 //ros::NodeHandle nh;
-ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 1024> nh;
+ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048> nh;
 
 /*
 char testnodename_1 [] = "test_pub";

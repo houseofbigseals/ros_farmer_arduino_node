@@ -2,7 +2,7 @@
 
 BMP180PubDevice::BMP180PubDevice(
     //ros::NodeHandle* nh_,
-    ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 1024>* nh_,
+    ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh_,
     char* temp_pub_name_,
     char* pressure_pub_name_,
     unsigned long publish_interval_
