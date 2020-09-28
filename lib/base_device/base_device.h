@@ -3,6 +3,7 @@
 
 
 #include <ros.h>
+#include <fast_hardware.h>
 //#include <std_msgs/String.h>
 //#include <std_msgs/Float32.h>
 

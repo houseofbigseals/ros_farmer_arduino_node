@@ -20,8 +20,9 @@ class SI7021PubDevice : public BasePubDevice
     sensor_msgs::Temperature temp_msg;
     sensor_msgs::Temperature hum_msg;
     bool init_error;
+    ros::NodeHandle_<FastHardware>* nh;
     //ros::NodeHandle* nh;
-    ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh;
+    //ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh;
     unsigned long publish_interval;  //ms
     unsigned long previous_millis;
     ros::Publisher hum_pub; //("si7021_temp", &si7021_temp_msg);
@@ -30,8 +31,8 @@ class SI7021PubDevice : public BasePubDevice
 
 
     SI7021PubDevice(
-        //ros::NodeHandle* nh_,
-        ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048> * nh_,
+        ros::NodeHandle_<FastHardware>* nh_,
+        //ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048> * nh_,
         char* temp_pub_name_,
         char* hum_pub_name_,
         unsigned long publish_interval_

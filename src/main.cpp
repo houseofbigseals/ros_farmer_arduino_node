@@ -3,7 +3,7 @@
 //#include <std_msgs/Empty.h>
 
 //#include <std_msgs/Int16MultiArray.h>
-
+#include <fast_hardware.h>
 #include <test_pub_device.h>
 #include <si7021_pub_device.h>
 #include <bmp180_pub_device.h>
@@ -12,7 +12,17 @@
 
 // global node definition
 //ros::NodeHandle nh;
-ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048> nh;
+/*
+class FastHardware : public ArduinoHardware
+{
+  public:
+  // especially for using in turtlebro`s mainboard arduino
+  FastHardware():ArduinoHardware(&Serial, 115200){};
+};
+*/
+ros::NodeHandle_<FastHardware>  nh;
+
+//ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048> nh;
 
 /*
 char testnodename_1 [] = "test_pub";
@@ -140,7 +150,7 @@ void setup()
 
     nh.subscribe(relay_sub);
 
-    nh.requestSyncTime(); //?
+    nh.requestSyncTime(); //? check if need it
     si.topics_init();
     bmp.topics_init();
     //tpd.topics_init();
@@ -154,7 +164,7 @@ void loop()
     si.nonblocking_publish_loop();
     bmp.nonblocking_publish_loop();
 
-    nh.requestSyncTime();
+    nh.requestSyncTime(); // todo check
     nh.spinOnce();
     delay(10);
 }

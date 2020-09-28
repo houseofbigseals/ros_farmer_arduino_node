@@ -19,7 +19,8 @@ class BMP180PubDevice : public BasePubDevice
     sensor_msgs::Temperature pressure_msg;
     bool init_error;
     //ros::NodeHandle* nh;
-    ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh;
+    ros::NodeHandle_<FastHardware>* nh;
+    //ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh;
     unsigned long publish_interval;  //ms
     unsigned long previous_millis;
     ros::Publisher pressure_pub;
@@ -27,7 +28,8 @@ class BMP180PubDevice : public BasePubDevice
     
     BMP180PubDevice(
         //ros::NodeHandle* nh_,
-        ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh_,
+        ros::NodeHandle_<FastHardware>* nh_,
+        //ros::NodeHandle_<ArduinoHardware, 5, 5, 1024, 2048>* nh_,
         char* temp_pub_name_,
         char* pressure_pub_name_,
         unsigned long publish_interval_
